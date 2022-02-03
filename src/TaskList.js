@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {collection, query, orderBy, onSnapshot} from "firebase/firestore"
+import {collection, query, orderBy, onSnapshot} from 'firebase/firestore'
 import {db} from './firebase'
 
 function TaskList() {
@@ -21,17 +21,17 @@ function TaskList() {
 
   let taskList;
   if (tasksLoading) {
-    taskList = <div className="TaskList-empty">Loading...</div>;
+    taskList = <div className='TaskList-empty'>Loading...</div>;
   } else if (tasks.length) {
     taskList = (
-      <ul className="TaskList">
+      <ul className='TaskList'>
         {tasks.map(task => (
           <h4 key={task.id}>{task.data.text}</h4>
         ))}
       </ul>
     );
   } else {
-    taskList = <div className="TaskList-empty">No Tasks</div>;
+    taskList = <div className='TaskList-empty'>No Tasks</div>;
   }
 
   return (

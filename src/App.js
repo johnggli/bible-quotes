@@ -3,7 +3,7 @@ import TaskList from './TaskList';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <TaskInput />
       <TaskList />
     </div>
