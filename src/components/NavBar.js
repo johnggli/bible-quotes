@@ -12,7 +12,10 @@ function NavBar() {
     <nav className='navbar'>
       <div className='nav-container'>
         <div className='nav-logo'>
-          <Link to='/'>BibleQuotes</Link>
+          <Link to='/'>
+            <i className="fas fa-bible"></i>
+            BibleQuotes
+          </Link>
         </div>
 
         <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -23,7 +26,7 @@ function NavBar() {
             <Link to='/topics' onClick={handleClick}>Topics</Link>
           </li>
           <li className="nav-item">
-            <a href='#!' className='btn' onClick={handleClick}>+ Join</a>
+            <a href='#!' className='btn' onClick={handleClick}>Login</a>
           </li>
         </ul>
         <div className="nav-icon" onClick={handleClick}>
