@@ -1,28 +1,36 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 function NavBar() {
-  return (
-    <header>
-      <div className='container'>
-        <div className='inner-content'>
-          <div className='brand'>
-            <Link to='/'>BibleQuotes</Link>
-          </div>
+  const [click, setClick] = useState(false)
 
-          <ul className='nav-links'>
-            <li>
-              <Link to='/'>All Quotes</Link>
-            </li>
-            <li>
-              <Link to='/topics'>Topics</Link>
-            </li>
-            <li>
-              <a href='#!' className='btn'>+ Join</a>
-            </li>
-          </ul>
+  function handleClick() {
+    setClick(!click)
+  }
+
+  return (
+    <nav className='navbar'>
+      <div className='nav-container'>
+        <div className='nav-logo'>
+          <Link to='/'>BibleQuotes</Link>
+        </div>
+
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            <Link to='/' onClick={handleClick}>All Quotes</Link>
+          </li>
+          <li className="nav-item">
+            <Link to='/topics' onClick={handleClick}>Topics</Link>
+          </li>
+          <li className="nav-item">
+            <a href='#!' className='btn' onClick={handleClick}>+ Join</a>
+          </li>
+        </ul>
+        <div className="nav-icon" onClick={handleClick}>
+          <i className={"fas fa-bars"}></i>
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
 
