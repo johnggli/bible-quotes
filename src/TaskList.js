@@ -15,8 +15,8 @@ function TaskList() {
         id: doc.id,
         data: doc.data()
       })))
+      setTasksLoading(false)
     })
-    setTasksLoading(false)
   },[])
 
   let taskList;
