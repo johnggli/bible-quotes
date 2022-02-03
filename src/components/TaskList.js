@@ -9,14 +9,16 @@ function TaskList() {
 
   /* function to get all tasks from firestore in realtime */ 
   useEffect(() => {
+    let isMounted = true;
     const taskColRef = query(collection(db, 'tasks'), orderBy('created', 'desc'))
     onSnapshot(taskColRef, (snapshot) => {
-      setTasks(snapshot.docs.map(doc => ({
+      if (isMounted) setTasks(snapshot.docs.map(doc => ({
         id: doc.id,
         data: doc.data()
       })))
-      setTasksLoading(false)
+      if (isMounted) setTasksLoading(false)
     })
+    return () => { isMounted = false } // cleanup toggles value, if unmounted
   },[])
 
   let taskList;
