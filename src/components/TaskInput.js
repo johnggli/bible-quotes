@@ -1,6 +1,6 @@
-import {useState} from 'react'
-import {db} from './firebase'
-import {collection, addDoc, Timestamp} from 'firebase/firestore'
+import { useState } from 'react'
+import { db } from '../services/firebase'
+import { collection, addDoc, Timestamp } from 'firebase/firestore'
 
 function TaskInput() {
 

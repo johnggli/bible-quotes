@@ -1,13 +1,9 @@
-import TaskInput from './TaskInput';
-import TaskList from './TaskList';
+import AppRoutes from './routes'
 
 function App() {
   return (
-    <div className='App'>
-      <TaskInput />
-      <TaskList />
-    </div>
-  );
+    <AppRoutes />
+  )
 }
 
-export default App;
+export default App
