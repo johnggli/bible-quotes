@@ -246,12 +246,79 @@ input:focus {
   background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
 }
 
-.TaskInput {
+.TaskList {
+  margin: 0;
+  padding: 0;
+}
+
+.qsresult {
+  margin: 0 0 15px;
+  padding: 75px 40px 15px;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: left;
+  position: relative;
+  color: #000;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.qsresult:after {
+  display: block;
+  content: "\201C";
+  font-family: georgia,Arial,Verdana;
+  font-weight: 700;
+  color: #eee;
+  font-size: 120px;
+  position: absolute;
+  left: 30px;
+  margin-left: -20px;
+  top: 50px;
+  z-index: 2;
+}
+
+.qsquote {
+  position: relative;
+  z-index: 3;
+}
+
+.qreslnk {
+  display: block;
+  text-decoration: none;
+  color: #000;
+}
+
+.likeq {
+  text-align: center;
+  line-height: 21px;
+  margin: 0 5px 0 0;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: 300;
+  display: inline-block;
+  color: #f44d3c;
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #e5a59e;
+  background-color: #fff;
+}
+
+.qscontrols {
+  clear: both;
+  margin-top: 20px;
+}
+
+.qscontrols .like-count {
+  margin-left: 4px;
+}
+
+/* .TaskInput {
   margin: 20px 0;
 }
 
 .TaskInput input {
-  /* width: 100%; */
   height: 50px;
   padding-left: 10px;
   border: none;
@@ -331,4 +398,4 @@ input:focus {
 
 .icon-yellow:hover {
   color: #dacb07;
-}
+} */

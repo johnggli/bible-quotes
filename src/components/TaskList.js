@@ -28,7 +28,19 @@ function TaskList() {
     taskList = (
       <ul className='TaskList'>
         {tasks.map(task => (
-          <h4 key={task.id}>{task.data.text}</h4>
+          <div key={task.id} className='qsresult'>
+            <div className='qsquote'>
+              <span className='qreslnk'>
+                {task.data.text}
+              </span>
+              <div className='qscontrols'>
+                <button className='likeq'>
+                  <i className='fa fa-heart-o'></i>
+                  <span className='owl-likes like-count'>12</span>
+                </button>
+              </div>
+            </div>
+          </div>
         ))}
       </ul>
     );
