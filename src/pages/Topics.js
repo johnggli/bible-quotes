@@ -6,4 +6,4 @@ function Topics() {
   );
 }
 
-export default Topics;
+export default Topics

@@ -5,9 +5,11 @@ import TopPhoto from '../components/TopPhoto'
 function AllQuotes() {
   return (
     <div className='container'>
-      <TopPhoto />
-      <TaskInput />
-      <TaskList />
+      <div className='content'>
+        <TopPhoto />
+        <TaskInput />
+        <TaskList />
+      </div>
     </div>
   )
 }

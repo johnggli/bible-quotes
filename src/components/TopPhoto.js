@@ -1,8 +1,8 @@
 function TopPhoto() {
   return (
-    <div className='pageheader'>
-      <div className='topphoto'></div>
-      <div className='toptitle'>All Quotes</div>
+    <div className='page-header'>
+      <div className='top-photo'></div>
+      <div className='top-title'>All Quotes</div>
     </div>
   )
 }
