@@ -9,9 +9,9 @@ function NavBar() {
   }
 
   return (
-    <nav className='navbar'>
+    <div className='navbar'>
       <div className='container'>
-        <div className='nav-container'>
+        <div className='nav-content'>
           <div className='nav-logo'>
             <Link to='/'>
               <i className='fas fa-bible'></i>
@@ -35,7 +35,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   )
 }
 

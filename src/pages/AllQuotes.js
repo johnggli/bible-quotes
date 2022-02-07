@@ -1,12 +1,12 @@
 import QuoteInput from '../components/QuoteInput'
 import QuoteList from '../components/QuoteList'
-import TopPhoto from '../components/TopPhoto'
+import Banner from '../components/Banner'
 
 function AllQuotes() {
   return (
     <div className='container'>
       <div className='content'>
-        <TopPhoto />
+        <Banner />
         <QuoteInput />
         <QuoteList />
       </div>

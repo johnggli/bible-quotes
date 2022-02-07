@@ -1,12 +1,13 @@
 :root {
-  --primary: #fff;
-  --secondary: #21d07a;
-  --background: #032541;
+  --primary: #FFF;
+  --secondary: #21D07A;
+  --dark: #032541;
+  --background: #EEE;
   --text: #000;
 }
 
 body {
-  background: #eee;
+  background: var(--background);
   font-family: 'Open Sans', sans-serif;
   padding: 0;
   margin: 0;
@@ -23,20 +24,18 @@ body {
   z-index: 20;
 }
 
-.navbar a {
-  color: var(--background);
-  font-size: 1rem;
-  text-decoration: none;
-  /* transition: all 0.3s ease; */
-}
-
-.nav-container {
+.nav-content {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 64px;
-  /* max-width: 960px; */
+}
+
+.nav-content a {
+  color: var(--dark);
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 .nav-logo {
@@ -44,9 +43,8 @@ body {
 }
 
 .nav-logo a {
-  color: var(--background);
+  color: var(--dark);
   align-items: center;
-  /* margin-left: 3rem; */
   cursor: pointer;
   text-decoration: none;
 
@@ -64,7 +62,6 @@ body {
   list-style: none;
   display: flex;
   align-items: center;
-  /* margin-right: 1rem; */
 }
 
 .nav-menu li {
@@ -86,13 +83,9 @@ body {
   background-color: var(--secondary);
   color: var(--primary);
   border-radius: 5px;
-  /* text-transform: uppercase; */
   font-weight: 700;
-  /* display: inline-block; */
   border: none;
   font-size: 1rem;
-  /* transition: all 0.3s ease; */
-  /* line-height: 1.1; */
 }
 
 .nav-item .btn:hover {
@@ -154,14 +147,12 @@ input:focus {
     top: 64px;
     left: -110%;
     opacity: 1;
-    /* transition: all 0.5s ease; */
   }
 
   .nav-menu.active {
     background: var(--primary);
     left: 0;
     opacity: 1;
-    /* transition: all 0.5s ease; */
     z-index: 1;
     margin-left: 0;
   }
@@ -179,7 +170,7 @@ input:focus {
   }
 
   .nav-menu li a:hover {
-    background: var(--background);
+    background: var(--dark);
     display: block;
     padding: 1rem;
     color: var(--primary);
@@ -198,7 +189,7 @@ input:focus {
     transform: translate(-100%, 50%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--background);
+    color: var(--dark);
   }
 
   .nav-icon:hover {
@@ -214,7 +205,7 @@ input:focus {
   border-radius: 0 0 12px 12px;
 }
 
-.top-photo {
+.banner-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -222,23 +213,19 @@ input:focus {
   right: 0;
   background-size: cover;
   background-position: center center;
-  background-image: url('https://quotesgram.com/images/bg/topic.jpeg');
+  background-image: url('https://user-images.githubusercontent.com/43749971/152801149-937043c3-220f-477d-9c24-483f135b0c0f.png');
   z-index: 1;
-  background-color: #5a2828;
+  background-color: var(--primary);
   opacity: 1;
-
-  box-sizing: border-box;
-
-  display: block;
 }
 
-.top-title {
+.banner-title {
   position: absolute;
   padding: 24px;
   bottom: -10px;
   width: 100%;
   z-index: 5;
-  color: #fff;
+  color: var(--primary);
   font-size: 42px;
   background: -webkit-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
   background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
@@ -259,7 +246,7 @@ input:focus {
   text-align: left;
   position: relative;
   color: #000;
-  background: #fff;
+  background: var(--primary);
   border-radius: 12px;
 }
 
@@ -268,7 +255,7 @@ input:focus {
   content: "\201C";
   font-family: georgia,Arial,Verdana;
   font-weight: 700;
-  color: #eee;
+  color: var(--background);
   font-size: 120px;
   position: absolute;
   left: 30px;
@@ -319,7 +306,7 @@ input:focus {
   height: 50px;
   width: 100%;
   background-color: var(--primary);
-  color: var(--background);
+  color: var(--dark);
   text-align: center;
   justify-content: center;
   align-items: center;
