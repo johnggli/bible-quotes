@@ -6,7 +6,7 @@ function QuoteInput() {
 
   const [text, setText] = useState('')
 
-  /* function to add new quote to firestore */
+  /* function to add new text to firestore */
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -25,12 +25,13 @@ function QuoteInput() {
   return (
     <form onSubmit={handleSubmit} className='quote-input'>
       <input
-        onChange={(e) => setText(e.target.value)}
-        value={text}
         type='text'
-        placeholder='Add a new quote...'
+        placeholder='Enter quote'
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         required
       />
+      <button type='submit'>Submit</button>
     </form>
   )
 }

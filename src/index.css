@@ -4,6 +4,7 @@
   --dark: #032541;
   --background: #EEE;
   --text: #000;
+  --gray: #DDD;
 }
 
 body {
@@ -195,9 +196,23 @@ input:focus {
   .nav-icon:hover {
     opacity: 0.7;
   }
+
+  .quote-input input {
+    margin-bottom: 10px;
+    width: calc(100% - 24px);
+  }
+  
+  .quote-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .quote-input button {
+    width: 100%;
+  }
 }
 
-.page-header {
+.banner {
   height: 250px;
   position: relative;
   overflow: hidden;
@@ -231,6 +246,37 @@ input:focus {
   background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
   background: -moz-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
   background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
+}
+
+.quote-input {
+  display: flex;
+  margin: 24px 0;
+}
+
+.quote-input input {
+  vertical-align: middle;
+  padding: 12px;
+  background-color: var(--primary);
+  border: 0 solid var(--gray);
+  flex-grow: 1;
+  border-radius: 5px;
+  margin-right: 6px;
+}
+
+.quote-input button {
+  padding: 10px 15px;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border-radius: 5px;
+  /* font-weight: 700; */
+  border: none;
+  font-size: 1rem;
+}
+
+.quote-input button:hover {
+  background-color: #1aa762;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .quote-list {
