@@ -2,18 +2,18 @@ import { useState } from 'react'
 import { db } from '../services/firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
 
-function TaskInput() {
+function QuoteInput() {
 
   const [text, setText] = useState('')
 
-  /* function to add new task to firestore */
+  /* function to add new quote to firestore */
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      addDoc(collection(db, 'tasks'), {
+      addDoc(collection(db, 'quotes'), {
         text: text,
-        checked: false,
-        starred: false,
+        // checked: false,
+        // starred: false,
         created: Timestamp.now()
       })
       setText('');
@@ -23,16 +23,16 @@ function TaskInput() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='TaskInput'>
+    <form onSubmit={handleSubmit} className='quote-input'>
       <input
         onChange={(e) => setText(e.target.value)}
         value={text}
         type='text'
-        placeholder='Add a new task...'
+        placeholder='Add a new quote...'
         required
       />
     </form>
   )
 }
 
-export default TaskInput
+export default QuoteInput

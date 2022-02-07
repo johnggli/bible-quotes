@@ -1,5 +1,5 @@
-import TaskInput from '../components/TaskInput'
-import TaskList from '../components/TaskList'
+import QuoteInput from '../components/QuoteInput'
+import QuoteList from '../components/QuoteList'
 import TopPhoto from '../components/TopPhoto'
 
 function AllQuotes() {
@@ -7,8 +7,8 @@ function AllQuotes() {
     <div className='container'>
       <div className='content'>
         <TopPhoto />
-        <TaskInput />
-        <TaskList />
+        <QuoteInput />
+        <QuoteList />
       </div>
     </div>
   )
