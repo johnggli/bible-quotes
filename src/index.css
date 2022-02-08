@@ -279,6 +279,15 @@ input:focus {
   cursor: pointer;
 }
 
+.quote-list-empty {
+  width: 100%;
+  height: calc(100vh - 50px);
+  text-align: center;
+  margin-top: 64px;
+  font-size: 30px;
+  color: var(--gray);
+}
+
 .quote-list {
   margin: 0;
   padding: 0;
@@ -366,35 +375,7 @@ input:focus {
   margin-left: 4px;
 }
 
-/* .quote-input {
-  margin: 20px 0;
-}
-
-.quote-input input {
-  height: 50px;
-  padding-left: 10px;
-  border: none;
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  background-color: #4a90e2;
-}
-
-.quote-input input::-webkit-input-placeholder {
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-}
-
-.quote-list-empty {
-  width: 100%;
-  text-align: center;
-  margin-top: 64px;
-  font-size: 30px;
-  color: #ddd;
-}
-
-.quote-list-item {
+/* .quote-list-item {
   list-style-type: none;
   width: 100%;
   min-height: 50px;
