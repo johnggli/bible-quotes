@@ -1,7 +1,7 @@
 function Topics() {
   return (
     <div className='container'>
-      <h2>Topics</h2>
+      <div className='quote-list-empty'>To do...</div>
     </div>
   );
 }
