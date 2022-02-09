@@ -9,7 +9,7 @@ function QuoteList() {
 
   /* function to get all quotes from firestore in realtime */ 
   useEffect(() => {
-    let isMounted = true;
+    let isMounted = true
     const quoteColRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
     onSnapshot(quoteColRef, (snapshot) => {
       if (isMounted) setQuotes(snapshot.docs.map(doc => ({
@@ -21,9 +21,9 @@ function QuoteList() {
     return () => { isMounted = false } // cleanup toggles value, if unmounted
   },[])
 
-  let quoteList;
+  let quoteList
   if (quotesLoading) {
-    quoteList = <div className='quote-list-empty'>Loading...</div>;
+    quoteList = <div className='quote-list-empty'>Loading...</div>
   } else if (quotes.length) {
     quoteList = (
       <ul className='quote-list'>
@@ -43,9 +43,9 @@ function QuoteList() {
           </div>
         ))}
       </ul>
-    );
+    )
   } else {
-    quoteList = <div className='quote-list-empty'>No quotes</div>;
+    quoteList = <div className='quote-list-empty'>No quotes</div>
   }
 
   return (
