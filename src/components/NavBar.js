@@ -32,12 +32,9 @@ function NavBar() {
                 {isAuthenticated ? (
                   <>
                     <li className='nav-item'>
-                      <img src={user.picture} alt={user.name} width='100'/>
-                      <h2>{user.name}</h2>
-                      <p>{user.email}</p>
-                    </li>
-                    <li className='nav-item'>
-                      <button className='btn' onClick={logout}>Logout</button>
+                      <button className='btn-danger' onClick={logout}>
+                        <i className={'fas fa-power-off'}></i>
+                      </button>
                     </li>
                   </>
                 ) : (
