@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function NavBar() {
+  const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0()
   const [click, setClick] = useState(false)
 
   function handleClick() {
@@ -26,9 +28,22 @@ function NavBar() {
             <li className='nav-item'>
               <Link to='/topics' onClick={handleClick}>Topics</Link>
             </li>
-            <li className='nav-item'>
-              <a href='#!' className='btn' onClick={handleClick}>Login</a>
-            </li>
+            {isAuthenticated ? (
+              <>
+                <li className='nav-item'>
+                  <img src={user.picture} alt={user.name} width='100'/>
+                  <h2>{user.name}</h2>
+                  <p>{user.email}</p>
+                </li>
+                <li className='nav-item'>
+                  <button className='btn' onClick={logout}>Logout</button>
+                </li>
+              </>
+            ) : (
+              <li className='nav-item'>
+                <button className='btn' onClick={loginWithRedirect}>Login</button>
+              </li>
+            )}
           </ul>
           <div className='nav-icon' onClick={handleClick}>
             <i className={'fas fa-bars'}></i>
