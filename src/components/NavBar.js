@@ -5,9 +5,14 @@ import { useAuth0 } from '@auth0/auth0-react'
 function NavBar() {
   const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0()
   const [click, setClick] = useState(false)
+  const [dropdownActive, setDropdownActive] = useState(false)
 
   function handleClick() {
     setClick(!click)
+  }
+
+  function handleDropdown() {
+    setDropdownActive(!dropdownActive)
   }
 
   return (
@@ -32,14 +37,16 @@ function NavBar() {
                 {isAuthenticated ? (
                   <>
                     <li className='nav-item'>
-                      <div className='current-user'>
+                      <div className='current-user' onClick={handleDropdown}>
                         <img src={user.picture} alt={user.name}/>
                       </div>
-                      <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                      </div>
+                      {dropdownActive && (
+                        <div className='dropdown-content'>
+                          <button onClick={logout}>
+                            <a>Logout</a>
+                          </button>
+                        </div>
+                      )}
                     </li>
                   </>
                 ) : (
