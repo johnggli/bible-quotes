@@ -32,9 +32,14 @@ function NavBar() {
                 {isAuthenticated ? (
                   <>
                     <li className='nav-item'>
-                      <button className='btn-danger' onClick={logout}>
-                        <i className={'fas fa-power-off'}></i>
-                      </button>
+                      <div className='current-user'>
+                        <img src={user.picture} alt={user.name}/>
+                      </div>
+                      <div className="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                      </div>
                     </li>
                   </>
                 ) : (
