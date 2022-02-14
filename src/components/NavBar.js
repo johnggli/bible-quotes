@@ -43,7 +43,7 @@ function NavBar() {
                       {dropdownActive && (
                         <div className='dropdown-content'>
                           <button onClick={logout}>
-                            <a>Logout</a>
+                            <a href=''>Logout</a>
                           </button>
                         </div>
                       )}
