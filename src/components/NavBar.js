@@ -32,9 +32,6 @@ function NavBar() {
             <li className='nav-item'>
               <Link to='/topics' onClick={handleClick}>Topics</Link>
             </li>
-            <li className='nav-item'>
-              <p>{process.env.NODE_ENV}</p>
-            </li>
             {!isLoading && (
               <>
                 {isAuthenticated ? (
