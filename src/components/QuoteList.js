@@ -10,14 +10,27 @@ function QuoteList() {
   /* function to get all quotes from firestore in realtime */ 
   useEffect(() => {
     let isMounted = true
-    const quoteColRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
-    onSnapshot(quoteColRef, (snapshot) => {
-      if (isMounted) setQuotes(snapshot.docs.map(doc => ({
-        id: doc.id,
-        data: doc.data()
-      })))
+
+    const quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
+    onSnapshot(quotesRef, (snapshots) => {
+      let quotesArray = [];
+      snapshots.docs.forEach((doc) => {
+        quotesArray.push({
+          id: doc.id,
+          data: doc.data()
+        })
+        // const likesRef = collection(db, 'quotes', doc.id, 'likes')
+        // onSnapshot(likesRef, (tee) => {
+        //   tee.docs.forEach((pinto) => {
+        //     console.log(pinto.data())
+        //   })
+        // })
+      })
+
+      if (isMounted) setQuotes(quotesArray)
       if (isMounted) setQuotesLoading(false)
     })
+
     return () => { isMounted = false } // cleanup toggles value, if unmounted
   },[])
 
