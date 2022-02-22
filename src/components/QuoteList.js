@@ -12,19 +12,13 @@ function QuoteList() {
     let isMounted = true
 
     const quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
-    onSnapshot(quotesRef, (snapshots) => {
-      let quotesArray = [];
-      snapshots.docs.forEach((doc) => {
+    onSnapshot(quotesRef, (querySnapshot) => {
+      let quotesArray = []
+      querySnapshot.docs.forEach((quote) => {
         quotesArray.push({
-          id: doc.id,
-          data: doc.data()
+          id: quote.id,
+          data: quote.data(),
         })
-        // const likesRef = collection(db, 'quotes', doc.id, 'likes')
-        // onSnapshot(likesRef, (tee) => {
-        //   tee.docs.forEach((pinto) => {
-        //     console.log(pinto.data())
-        //   })
-        // })
       })
 
       if (isMounted) setQuotes(quotesArray)
@@ -49,7 +43,7 @@ function QuoteList() {
               <div className='quote-list-buttons'>
                 <button className='like-quote'>
                   <i className='fa fa-heart-o'></i>
-                  <span className='owl-likes like-count'>12</span>
+                  <span className='owl-likes like-count'>{quote.data.likes.length}</span>
                 </button>
               </div>
             </div>
