@@ -41,7 +41,7 @@ function QuoteList() {
   useEffect(() => {
     let isMounted = true
 
-    const quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
+    const quotesRef = query(collection(db, 'quotes'), orderBy('likes', 'desc'))
     onSnapshot(quotesRef, (querySnapshot) => {
       let quotesArray = []
       querySnapshot.docs.forEach((quote) => {
