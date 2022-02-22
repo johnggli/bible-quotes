@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment } from 'firebase/firestore'
 import { db } from '../services/firebase'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -16,11 +16,24 @@ function QuoteList() {
     } else {
       try {
         updateDoc(doc(db, 'quotes', quoteId), {
-          likes: arrayUnion(user.email),
+          users: arrayUnion(user.email),
+          likes: increment(1),
         })
       } catch (err) {
         alert(err)
       }
+    }
+  }
+
+  /* function to dislike a quote */
+  function dislikeQuote(quoteId) {
+    try {
+      updateDoc(doc(db, 'quotes', quoteId), {
+        users: arrayRemove(user.email),
+        likes: increment(-1),
+      })
+    } catch (err) {
+      alert(err)
     }
   }
 
@@ -58,9 +71,9 @@ function QuoteList() {
                 {quote.data.text}
               </span>
               <div className='quote-list-buttons'>
-                <button className='like-quote' onClick={isLoading ? undefined : () => likeQuote(quote.id)}>
-                  <i className={isAuthenticated && quote.data.likes.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
-                  <span className='owl-likes like-count'>{quote.data.likes.length}</span>
+                <button className='like-quote' onClick={isLoading ? undefined : isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? () => dislikeQuote(quote.id) : () => likeQuote(quote.id)}>
+                  <i className={isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
+                  <span className='owl-likes like-count'>{quote.data.likes}</span>
                 </button>
               </div>
             </div>

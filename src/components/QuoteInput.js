@@ -12,7 +12,8 @@ function QuoteInput() {
     try {
       addDoc(collection(db, 'quotes'), {
         text: text,
-        likes: [],
+        users: [],
+        likes: 0,
         // checked: false,
         // starred: false,
         created: Timestamp.now()
