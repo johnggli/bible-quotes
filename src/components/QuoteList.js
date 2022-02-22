@@ -1,11 +1,28 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion } from 'firebase/firestore'
 import { db } from '../services/firebase'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function QuoteList() {
 
+  const { user, isAuthenticated, isLoading } = useAuth0()
   const [quotesLoading, setQuotesLoading] = useState(true)
   const [quotes, setQuotes] = useState([])
+
+  /* function to like a quote */
+  function likeQuote(quoteId) {
+    if (!isAuthenticated) {
+      alert('Você precisa fazer login para curtir.')
+    } else {
+      try {
+        updateDoc(doc(db, 'quotes', quoteId), {
+          likes: arrayUnion(user.email),
+        })
+      } catch (err) {
+        alert(err)
+      }
+    }
+  }
 
   /* function to get all quotes from firestore in realtime */ 
   useEffect(() => {
@@ -41,8 +58,8 @@ function QuoteList() {
                 {quote.data.text}
               </span>
               <div className='quote-list-buttons'>
-                <button className='like-quote'>
-                  <i className='fa fa-heart-o'></i>
+                <button className='like-quote' onClick={isLoading ? undefined : () => likeQuote(quote.id)}>
+                  <i className={isAuthenticated && quote.data.likes.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
                   <span className='owl-likes like-count'>{quote.data.likes.length}</span>
                 </button>
               </div>
