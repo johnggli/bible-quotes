@@ -312,7 +312,6 @@ input:focus {
   right: 0;
   background-size: cover;
   background-position: center center;
-  background-image: url('https://user-images.githubusercontent.com/43749971/152801149-937043c3-220f-477d-9c24-483f135b0c0f.png');
   z-index: 1;
   background-color: var(--primary);
   opacity: 1;
