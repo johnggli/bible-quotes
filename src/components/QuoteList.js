@@ -88,7 +88,7 @@ function QuoteList() {
                   <button
                     className='delete-quote'
                     style={{ 
-                      display: `${quote.data.author != user.email && 'none'}`
+                      display: `${quote.data.author !== user.email && 'none'}`
                     }}
                     onClick={() => { if (window.confirm('Are you sure?')) deleteQuote(quote.id) }}
                   >
