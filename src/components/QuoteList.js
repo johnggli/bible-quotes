@@ -12,7 +12,7 @@ function QuoteList() {
   /* function to like a quote */
   function likeQuote(quoteId) {
     if (!isAuthenticated) {
-      alert('Você precisa fazer login.')
+      alert('You need to login.')
     } else {
       try {
         updateDoc(doc(db, 'quotes', quoteId), {
@@ -90,7 +90,7 @@ function QuoteList() {
                     style={{ 
                       display: `${quote.data.author != user.email && 'none'}`
                     }}
-                    onClick={() => deleteQuote(quote.id)}
+                    onClick={() => { if (window.confirm('Are you sure?')) deleteQuote(quote.id) }}
                   >
                     <i className='fa fa-trash'></i>
                     <span>Delete</span>
