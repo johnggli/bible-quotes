@@ -12,7 +12,7 @@ function QuoteList() {
   /* function to like a quote */
   function likeQuote(quoteId) {
     if (!isAuthenticated) {
-      alert('Você precisa fazer login para curtir.')
+      alert('Você precisa fazer login.')
     } else {
       try {
         updateDoc(doc(db, 'quotes', quoteId), {

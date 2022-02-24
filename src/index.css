@@ -148,7 +148,7 @@ body {
 
 .dropdown-content a:hover {
   opacity: 1;
-  background: var(--dark);
+  background: var(--black);
   display: block;
   padding: 1rem;
   color: var(--primary);
