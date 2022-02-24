@@ -4,10 +4,10 @@ function Topics() {
   return (
     <div className='container'>
       <div className='content'>
-        <Banner title='Topics' image='https://knoxoakville.com/1833/wp-content/uploads/2015/08/Open-Bible-banner.jpg'/>
+        <Banner title='Topics' image='https://user-images.githubusercontent.com/43749971/155612522-b81365a7-82f3-49fe-9c5a-0d343aa20f3a.jpg'/>
 
         <ul className='filterNav'>
-          <li class='allBtn'><a href='#' data-filter='*' class='selected'>All</a></li>
+          <li className='allBtn'><a href='#' data-filter='*' className='selected'>All</a></li>
           <li><a href='#' data-filter='.genesis'>Genesis</a></li>
           <li><a href='#' data-filter='.exodus'>Exodus</a></li>
           <li><a href='#' data-filter='.leviticus'>Leviticus</a></li>
