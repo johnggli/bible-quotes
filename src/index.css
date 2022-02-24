@@ -2,7 +2,8 @@
   --primary: #FFF;
   --secondary: #21D07A;
   --danger: #F44D3C;
-  --dark: #032541;
+  --dark: #7d7d7d;
+  --black: #032541;
   --background: #EEE;
   --text: #000;
   --gray: #DDD;
@@ -35,7 +36,7 @@ body {
 }
 
 .nav-content a {
-  color: var(--dark);
+  color: var(--black);
   font-size: 1rem;
   text-decoration: none;
 }
@@ -45,7 +46,7 @@ body {
 }
 
 .nav-logo a {
-  color: var(--dark);
+  color: var(--black);
   align-items: center;
   cursor: pointer;
   text-decoration: none;
@@ -439,6 +440,58 @@ input:focus {
   margin-left: 4px;
 }
 
+.filterNav {
+  padding: 0;
+  margin: 24px 0;
+  width: auto;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  display: block;
+}
+
+.filterNav ul {
+  margin: 0 0 25px 20px;
+  list-style-type: disc;
+  list-style: none;
+}
+
+.filterNav .selected, .filterNav a:hover {
+  background-color: var(--secondary);
+  color: var(--primary) ;
+}
+
+.filterNav li a {
+  font-size: 1em;
+  background: var(--primary);
+  display: inline-block;
+  color: var(--dark);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  padding: 7px 11px 7px ;
+  border: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.filterNav li {
+  padding: 0px 0 0 0;
+  background: none;
+  margin: 0 8px 8px 0;
+  display: inline-block;
+}
+
+.filterNav ul li {
+  margin: 0 0 10px 0;
+  line-height: 1.4em;
+  font-size: 1em;
+}
+
 .footer {
   display: flex;
   height: 50px;
@@ -448,6 +501,9 @@ input:focus {
   text-align: center;
   justify-content: center;
   align-items: center;
+
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .footer i {
