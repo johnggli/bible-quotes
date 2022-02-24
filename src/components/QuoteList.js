@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc } from 'firebase/firestore'
 import { db } from '../services/firebase'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -32,6 +32,15 @@ function QuoteList() {
         users: arrayRemove(user.email),
         likes: increment(-1),
       })
+    } catch (err) {
+      alert(err)
+    }
+  }
+
+  /* function to delete a quote */
+  function deleteQuote(quoteId) {
+    try {
+      deleteDoc(doc(db, 'quotes', quoteId))
     } catch (err) {
       alert(err)
     }
@@ -73,8 +82,20 @@ function QuoteList() {
               <div className='quote-list-buttons'>
                 <button className='like-quote' onClick={isLoading ? undefined : isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? () => dislikeQuote(quote.id) : () => likeQuote(quote.id)}>
                   <i className={isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
-                  <span className='owl-likes like-count'>{quote.data.likes}</span>
+                  <span>{quote.data.likes}</span>
                 </button>
+                {isAuthenticated && (
+                  <button
+                    className='delete-quote'
+                    style={{ 
+                      display: `${quote.data.author != user.email && 'none'}`
+                    }}
+                    onClick={() => deleteQuote(quote.id)}
+                  >
+                    <i className='fa fa-trash'></i>
+                    <span>Delete</span>
+                  </button>
+                )}
               </div>
             </div>
           </div>

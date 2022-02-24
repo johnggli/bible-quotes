@@ -431,12 +431,29 @@ input:focus {
   background-color: #fff;
 }
 
+.delete-quote {
+  text-align: center;
+  line-height: 21px;
+  margin: 0 5px 0 0;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: 300;
+  display: inline-block;
+  color: var(--primary);
+  cursor: pointer;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid var(--danger);
+  background-color: var(--danger);
+}
+
 .quote-list-buttons {
   clear: both;
   margin-top: 20px;
 }
 
-.quote-list-buttons .like-count {
+.quote-list-buttons span {
   margin-left: 4px;
 }
 
