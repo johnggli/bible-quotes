@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc, where } from 'firebase/firestore'
 import { db } from '../services/firebase'
 import { useAuth0 } from '@auth0/auth0-react'
 
-function QuoteList() {
+function QuoteList(props) {
 
   const { user, isAuthenticated, isLoading } = useAuth0()
   const [quotesLoading, setQuotesLoading] = useState(true)
@@ -50,7 +50,12 @@ function QuoteList() {
   useEffect(() => {
     let isMounted = true
 
-    const quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
+    let quotesRef
+    if (props.topic) {
+      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'))
+    } else {
+      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
+    }
     onSnapshot(quotesRef, (querySnapshot) => {
       let quotesArray = []
       querySnapshot.docs.forEach((quote) => {

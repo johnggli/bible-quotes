@@ -1,4 +1,5 @@
 import Banner from '../components/Banner'
+import QuoteList from '../components/QuoteList'
 
 function Topics() {
   return (
@@ -31,6 +32,8 @@ function Topics() {
           <li><a href='#!' data-filter='.jeremiah'>Jeremiah</a></li>
           <li><a href='#!' data-filter='.lamentations'>Lamentations</a></li>
         </ul>
+
+        <QuoteList topic='love'/>
       </div>
     </div>
   )
