@@ -12,7 +12,7 @@ function QuoteInput() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (!isAuthenticated) {
-      alert('You need to login.')
+      alert('You must be logged in to post a quote.')
     } else {
       try {
         addDoc(collection(db, 'quotes'), {

@@ -459,7 +459,7 @@ input:focus {
 
 .filterNav {
   padding: 0;
-  margin: 24px 0;
+  margin: 40px 0;
   width: auto;
   text-align: center;
   width: 100%;
@@ -511,7 +511,7 @@ input:focus {
 
 .footer {
   display: flex;
-  height: 50px;
+  height: 64px;
   width: 100%;
   background-color: var(--primary);
   color: var(--dark);
@@ -529,4 +529,10 @@ input:focus {
 
 .footer a {
   margin-left: 4px;
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.footer a:hover {
+  color: var(--black);
 }

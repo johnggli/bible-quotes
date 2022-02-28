@@ -1,5 +1,5 @@
+import { Link } from 'react-router-dom'
 import Banner from '../components/Banner'
-import QuoteList from '../components/QuoteList'
 
 function Topics() {
   return (
@@ -10,7 +10,11 @@ function Topics() {
         <ul className='filterNav'>
           <li className='allBtn'><a href='#!' data-filter='*' className='selected'>All</a></li>
           <li><a href='#!' data-filter='.genesis'>Genesis</a></li>
-          <li><a href='#!' data-filter='.exodus'>Exodus</a></li>
+          <li>
+            <Link to='/topics/love'>
+              Love
+            </Link>
+          </li>
           <li><a href='#!' data-filter='.leviticus'>Leviticus</a></li>
           <li><a href='#!' data-filter='.numbers'>Numbers</a></li>
           <li><a href='#!' data-filter='.deuteronomy'>Deuteronomy</a></li>
@@ -32,8 +36,6 @@ function Topics() {
           <li><a href='#!' data-filter='.jeremiah'>Jeremiah</a></li>
           <li><a href='#!' data-filter='.lamentations'>Lamentations</a></li>
         </ul>
-
-        <QuoteList topic='love'/>
       </div>
     </div>
   )

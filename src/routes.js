@@ -3,6 +3,7 @@ import Footer from './components/Footer'
 
 import NavBar from './components/NavBar'
 import AllQuotes from './pages/AllQuotes'
+import QuotesByTopic from './pages/QuotesByTopic'
 import Topics from './pages/Topics'
 
 function AppRoutes() {
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Routes>
         <Route exact path='/' element={<AllQuotes />} />
         <Route path='/topics' element={<Topics />}/>
+        <Route path='/topics/love' element={<QuotesByTopic topic='love'/>}/>
       </Routes>
 
       <Footer />

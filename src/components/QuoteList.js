@@ -12,7 +12,7 @@ function QuoteList(props) {
   /* function to like a quote */
   function likeQuote(quoteId) {
     if (!isAuthenticated) {
-      alert('You need to login.')
+      alert('You must be logged in to like a quote.')
     } else {
       try {
         updateDoc(doc(db, 'quotes', quoteId), {
