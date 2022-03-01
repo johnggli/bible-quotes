@@ -298,29 +298,7 @@ input:focus {
 
   .topics-select {
     width: 100%;
-    vertical-align: middle;
-    padding: 12px;
-    background-color: var(--primary);
-    border: 0 solid var(--gray);
-    flex-grow: 1;
-    border-radius: 5px;
-    margin-right: 6px;
     margin-bottom: 10px;
-    color: var(--dark);
-    outline: none;
-  }
-
-  .topics-select option {
-    color: black;
-  }
-  .topics-select option:first-child{
-    color: var(--dark);
-  }
-  .topics-select:invalid {
-    color: var(--dark);
-  }
-  .topics-select:valid {
-    color: black;
   }
 }
 
@@ -391,6 +369,30 @@ input:focus {
   background-color: #1aa762;
   opacity: 1;
   cursor: pointer;
+}
+
+.topics-select {
+  min-width: 24%;
+  padding: 12px;
+  background-color: var(--primary);
+  border: 0 solid var(--gray);
+  border-radius: 5px;
+  margin-right: 6px;
+  color: var(--dark);
+  outline: none;
+}
+
+.topics-select option {
+  color: black;
+}
+.topics-select option:first-child{
+  color: var(--dark);
+}
+.topics-select:invalid {
+  color: var(--dark);
+}
+.topics-select:valid {
+  color: black;
 }
 
 .quote-list-empty {
