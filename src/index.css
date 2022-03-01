@@ -330,11 +330,13 @@ input:focus {
   background: -o-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
   background: -moz-linear-gradient(bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
   background: linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.6));
+
+  text-transform: capitalize;
 }
 
 .quote-input {
   display: flex;
-  margin: 24px 0;
+  margin-top: 24px;
 }
 
 .quote-input input {
@@ -365,7 +367,8 @@ input:focus {
 
 .quote-list-empty {
   width: 100%;
-  height: calc(100vh - 50px);
+  /* height: calc(100vh - 50px); */
+  margin-bottom: 64px;
   text-align: center;
   margin-top: 64px;
   font-size: 30px;
@@ -375,6 +378,7 @@ input:focus {
 .quote-list {
   margin: 0;
   padding: 0;
+  margin: 24px 0;
 }
 
 .quote-list-result {

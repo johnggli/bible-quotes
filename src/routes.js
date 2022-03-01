@@ -15,6 +15,7 @@ function AppRoutes() {
         <Route exact path='/' element={<AllQuotes />} />
         <Route path='/topics' element={<Topics />}/>
         <Route path='/topics/love' element={<QuotesByTopic topic='love'/>}/>
+        <Route path='/topics/death' element={<QuotesByTopic topic='death'/>}/>
       </Routes>
 
       <Footer />
