@@ -70,7 +70,7 @@ function QuoteList(props) {
     })
 
     return () => { isMounted = false } // cleanup toggles value, if unmounted
-  },[])
+  },[props.topic])
 
   let quoteList
   if (quotesLoading) {
