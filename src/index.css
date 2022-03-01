@@ -284,7 +284,7 @@ input:focus {
 
   .quote-input input {
     margin-bottom: 10px;
-    width: calc(100% - 24px);
+    width: calc(100% - 32px);
   }
   
   .quote-input {
@@ -294,6 +294,33 @@ input:focus {
   
   .quote-input button {
     width: 100%;
+  }
+
+  .topics-select {
+    width: 100%;
+    vertical-align: middle;
+    padding: 12px;
+    background-color: var(--primary);
+    border: 0 solid var(--gray);
+    flex-grow: 1;
+    border-radius: 5px;
+    margin-right: 6px;
+    margin-bottom: 10px;
+    color: var(--dark);
+    outline: none;
+  }
+
+  .topics-select option {
+    color: black;
+  }
+  .topics-select option:first-child{
+    color: var(--dark);
+  }
+  .topics-select:invalid {
+    color: var(--dark);
+  }
+  .topics-select:valid {
+    color: black;
   }
 }
 
@@ -341,12 +368,13 @@ input:focus {
 
 .quote-input input {
   vertical-align: middle;
-  padding: 12px;
+  padding: 12px 16px;
   background-color: var(--primary);
   border: 0 solid var(--gray);
   flex-grow: 1;
   border-radius: 5px;
   margin-right: 6px;
+  line-height: 17px;
 }
 
 .quote-input button {

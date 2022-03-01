@@ -7,6 +7,7 @@ function QuoteInput() {
 
   const { user, isAuthenticated } = useAuth0()
   const [text, setText] = useState('')
+  const [topic, setTopic] = useState('')
 
   /* function to add new text to firestore */
   const handleSubmit = async (e) => {
@@ -17,6 +18,7 @@ function QuoteInput() {
       try {
         addDoc(collection(db, 'quotes'), {
           text: text,
+          topic: topic,
           users: [],
           likes: 0,
           author: user.email,
@@ -33,6 +35,7 @@ function QuoteInput() {
 
   return (
     <form onSubmit={handleSubmit} className='quote-input'>
+
       <input
         type='text'
         placeholder='Enter quote'
@@ -40,7 +43,21 @@ function QuoteInput() {
         onChange={(e) => setText(e.target.value)}
         required
       />
+
+      <select
+        className='topics-select'
+        name='topics'
+        onChange={(e) => setTopic(e.target.value)}
+        required
+      >
+        <option value=''>Select a topic</option>
+        <option value='love'>love</option>
+        <option value='death'>death</option>
+        <option value='faith'>faith</option>
+      </select>
+
       <button type='submit'>Submit</button>
+
     </form>
   )
 }
