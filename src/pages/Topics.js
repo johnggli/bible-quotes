@@ -5,7 +5,7 @@ function Topics() {
   return (
     <div className='container'>
       <div className='content'>
-        <Banner title='Topics' image='https://user-images.githubusercontent.com/43749971/155612522-b81365a7-82f3-49fe-9c5a-0d343aa20f3a.jpg'/>
+        <Banner title='Topics' image='https://user-images.githubusercontent.com/43749971/156467349-2967ab15-599d-470d-845d-89b2859c77e0.jpg'/>
 
         <ul className='filterNav'>
           {/* <li className='allBtn'><a href='#!' data-filter='*' className='selected'>All</a></li> */}

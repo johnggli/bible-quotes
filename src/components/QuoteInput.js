@@ -50,10 +50,11 @@ function QuoteInput() {
         onChange={(e) => setTopic(e.target.value)}
         required
       >
-        <option value=''>Select a topic</option>
+        <option value=''>topic</option>
         <option value='love'>love</option>
         <option value='death'>death</option>
         <option value='faith'>faith</option>
+        <option value='encouragement'>encouragement</option>
       </select>
 
       <button type='submit'>Submit</button>

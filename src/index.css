@@ -380,10 +380,12 @@ input:focus {
   margin-right: 6px;
   color: var(--dark);
   outline: none;
+  text-transform: capitalize;
 }
 
 .topics-select option {
   color: black;
+  text-transform: capitalize;
 }
 .topics-select option:first-child{
   color: var(--dark);

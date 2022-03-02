@@ -6,7 +6,7 @@ function AllQuotes() {
   return (
     <div className='container'>
       <div className='content'>
-        <Banner title='All Quotes' image='https://user-images.githubusercontent.com/43749971/155612677-c28e0066-b82a-4713-8ebb-75e1cc273400.png'/>
+        <Banner title='All Quotes' image='https://user-images.githubusercontent.com/43749971/156467133-a99573f7-f989-44cf-9441-88bb58de972f.jpg'/>
         <QuoteInput />
         <QuoteList />
       </div>
