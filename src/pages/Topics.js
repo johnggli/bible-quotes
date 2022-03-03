@@ -10,6 +10,7 @@ function Topics() {
         <ul className='filterNav'>
           {/* <li className='allBtn'><a href='#!' data-filter='*' className='selected'>All</a></li> */}
           <li><Link to='/topics/blessing'>blessing</Link></li>
+          <li><Link to='/topics/commandments'>commandments</Link></li>
           <li><Link to='/topics/consolation'>consolation</Link></li>
           <li><Link to='/topics/death'>death</Link></li>
           <li><Link to='/topics/faith'>faith</Link></li>
@@ -18,15 +19,17 @@ function Topics() {
           <li><Link to='/topics/gratitude'>gratitude</Link></li>
           <li><Link to='/topics/health'>health</Link></li>
           <li><Link to='/topics/hope'>hope</Link></li>
+          <li><Link to='/topics/judgment'>judgment</Link></li>
           <li><Link to='/topics/love'>love</Link></li>
+          <li><Link to='/topics/marriage'>marriage</Link></li>
           <li><Link to='/topics/money'>money</Link></li>
           <li><Link to='/topics/motivation'>motivation</Link></li>
           <li><Link to='/topics/prayer'>prayer</Link></li>
           <li><Link to='/topics/promises'>promises</Link></li>
           <li><Link to='/topics/purity'>purity</Link></li>
           <li><Link to='/topics/repentance'>repentance</Link></li>
-          <li><Link to='/topics/sabbath'>sabbath</Link></li>
           <li><Link to='/topics/salvation'>salvation</Link></li>
+          <li><Link to='/topics/wisdom'>wisdom</Link></li>
         </ul>
       </div>
     </div>

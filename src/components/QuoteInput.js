@@ -52,6 +52,7 @@ function QuoteInput() {
       >
         <option value=''>topic</option>
         <option value='blessing'>blessing</option>
+        <option value='commandments'>commandments</option>
         <option value='consolation'>consolation</option>
         <option value='death'>death</option>
         <option value='faith'>faith</option>
@@ -60,15 +61,17 @@ function QuoteInput() {
         <option value='gratitude'>gratitude</option>
         <option value='health'>health</option>
         <option value='hope'>hope</option>
+        <option value='judgment'>judgment</option>
         <option value='love'>love</option>
+        <option value='marriage'>marriage</option>
         <option value='money'>money</option>
         <option value='motivation'>motivation</option>
         <option value='prayer'>prayer</option>
         <option value='promises'>promises</option>
         <option value='purity'>purity</option>
         <option value='repentance'>repentance</option>
-        <option value='sabbath'>sabbath</option>
         <option value='salvation'>salvation</option>
+        <option value='wisdom'>wisdom</option>
       </select>
 
       <button type='submit'>Submit</button>
