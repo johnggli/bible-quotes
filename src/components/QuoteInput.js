@@ -51,10 +51,24 @@ function QuoteInput() {
         required
       >
         <option value=''>topic</option>
-        <option value='love'>love</option>
+        <option value='blessing'>blessing</option>
+        <option value='consolation'>consolation</option>
         <option value='death'>death</option>
         <option value='faith'>faith</option>
-        <option value='encouragement'>encouragement</option>
+        <option value='forgiveness'>forgiveness</option>
+        <option value='friendship'>friendship</option>
+        <option value='gratitude'>gratitude</option>
+        <option value='health'>health</option>
+        <option value='hope'>hope</option>
+        <option value='love'>love</option>
+        <option value='money'>money</option>
+        <option value='motivation'>motivation</option>
+        <option value='prayer'>prayer</option>
+        <option value='promises'>promises</option>
+        <option value='purity'>purity</option>
+        <option value='repentance'>repentance</option>
+        <option value='sabbath'>sabbath</option>
+        <option value='salvation'>salvation</option>
       </select>
 
       <button type='submit'>Submit</button>
