@@ -495,11 +495,41 @@ input:focus {
   margin-left: 4px;
 }
 
+.filter-list {
+  margin: 0;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.filter-list-item {
+  margin: 0 0 15px;
+  padding: 75px 40px 15px;
+  line-height: 24px;
+  text-align: left;
+  position: relative;
+  color: #000;
+  background: var(--primary);
+  border-radius: 12px;
+}
+
+.filter-letter {
+  display: block;
+  font-family: georgia,Arial,Verdana;
+  font-weight: bold;
+  color: var(--background);
+  font-size: 64px;
+  position: absolute;
+  left: 36px;
+  margin-left: -20px;
+  top: 32px;
+  z-index: 2;
+}
+
 .filter-nav {
   padding: 0;
-  margin: 40px 0;
+  margin-top: 16px;
   width: auto;
-  text-align: center;
+  text-align: left;
   width: 100%;
   position: relative;
   display: block;
@@ -518,7 +548,7 @@ input:focus {
 
 .filter-nav li a {
   font-size: 1em;
-  background: var(--primary);
+  background: var(--background);
   display: inline-block;
   color: var(--dark);
   text-decoration: none;
