@@ -7,7 +7,7 @@ function Topics() {
       <div className='content'>
         <Banner title='Topics' image='https://user-images.githubusercontent.com/43749971/156467349-2967ab15-599d-470d-845d-89b2859c77e0.jpg'/>
 
-        <ul className='filterNav'>
+        <ul className='filter-nav'>
           {/* <li className='allBtn'><a href='#!' data-filter='*' className='selected'>All</a></li> */}
           <li><Link to='/topics/blessing'>blessing</Link></li>
           <li><Link to='/topics/commandments'>commandments</Link></li>
