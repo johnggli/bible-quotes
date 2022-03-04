@@ -503,31 +503,32 @@ input:focus {
 
 .filter-list-item {
   margin: 0 0 15px;
-  padding: 75px 40px 15px;
+  padding: 32px 24px;
   line-height: 24px;
   text-align: left;
   position: relative;
   color: #000;
   background: var(--primary);
   border-radius: 12px;
+
+  display: flex;
+  align-items: center;
 }
 
 .filter-letter {
-  display: block;
   font-family: georgia,Arial,Verdana;
   font-weight: bold;
   color: var(--background);
   font-size: 64px;
-  position: absolute;
-  left: 36px;
-  margin-left: -20px;
-  top: 32px;
+  /* margin-left: -20px; */
   z-index: 2;
+  /* margin-right: 16px; */
+  width: 80px;
 }
 
 .filter-nav {
   padding: 0;
-  margin-top: 16px;
+  /* margin-top: 16px; */
   width: auto;
   text-align: left;
   width: 100%;
@@ -567,7 +568,7 @@ input:focus {
 .filter-nav li {
   padding: 0px 0 0 0;
   background: none;
-  margin: 0 8px 8px 0;
+  margin: 4px 8px 4px 0;
   display: inline-block;
 }
 
