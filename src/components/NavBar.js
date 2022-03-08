@@ -27,7 +27,7 @@ function NavBar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' onClick={handleClick}>All Quotes</Link>
+              <Link to='/' onClick={handleClick}>New Quotes</Link>
             </li>
             <li className='nav-item'>
               <Link to='/topics' onClick={handleClick}>Topics</Link>

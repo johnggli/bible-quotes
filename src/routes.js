@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 
 import NavBar from './components/NavBar'
-import AllQuotes from './pages/AllQuotes'
+import NewQuotes from './pages/NewQuotes'
 import QuotesByTopic from './pages/QuotesByTopic'
 import Topics from './pages/Topics'
 
@@ -12,7 +12,7 @@ function AppRoutes() {
       <NavBar />
 
       <Routes>
-        <Route exact path='/' element={<AllQuotes />} />
+        <Route exact path='/' element={<NewQuotes />} />
         <Route path='/topics' element={<Topics />}/>
         <Route path='/topics/blessing' element={<QuotesByTopic topic='blessing'/>}/>
         <Route path='/topics/commandments' element={<QuotesByTopic topic='commandments'/>}/>
