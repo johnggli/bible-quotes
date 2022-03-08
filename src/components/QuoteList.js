@@ -55,9 +55,9 @@ function QuoteList(props) {
 
     let quotesRef
     if (props.topic) {
-      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'))
+      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'), limit(10))
     } else {
-      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(2))
+      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(10))
     }
     onSnapshot(quotesRef, (querySnapshot) => {
       let quotesArray = []
@@ -78,7 +78,12 @@ function QuoteList(props) {
 
   function fetchMore() {
     setMoreLoading(true)
-    let quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(2), startAfter(lastDoc))
+    let quotesRef
+    if (props.topic) {
+      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'), limit(10), startAfter(lastDoc))
+    } else {
+      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(10), startAfter(lastDoc))
+    }
     onSnapshot(quotesRef, (querySnapshot) => {
       if (querySnapshot.size === 0) {
         setIsEmpty(true)
