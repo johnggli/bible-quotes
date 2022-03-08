@@ -7,6 +7,8 @@ function QuoteList(props) {
 
   const { user, isAuthenticated, isLoading } = useAuth0()
   const [quotesLoading, setQuotesLoading] = useState(true)
+  const [moreLoading, setMoreLoading] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(false)
   const [quotes, setQuotes] = useState([])
   const [lastDoc, setLastDoc] = useState()
 
@@ -75,19 +77,24 @@ function QuoteList(props) {
   },[props.topic])
 
   function fetchMore() {
+    setMoreLoading(true)
     let quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(2), startAfter(lastDoc))
     onSnapshot(quotesRef, (querySnapshot) => {
-      let quotesArray = []
-      querySnapshot.docs.forEach((quote) => {
-        quotesArray.push({
-          id: quote.id,
-          data: quote.data(),
+      if (querySnapshot.size === 0) {
+        setIsEmpty(true)
+      } else {
+        let quotesArray = []
+        querySnapshot.docs.forEach((quote) => {
+          quotesArray.push({
+            id: quote.id,
+            data: quote.data(),
+          })
         })
-      })
-
-      setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
-      setQuotes((quotes) => [...quotes, ...quotesArray])
-      setQuotesLoading(false)
+  
+        setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
+        setQuotes((quotes) => [...quotes, ...quotesArray])
+        setMoreLoading(false)
+      }
     })
   }
 
@@ -125,9 +132,24 @@ function QuoteList(props) {
           </div>
         ))}
         <div className='more'>
-          <button className='btn-more' onClick={fetchMore}>
-            <span>Show More</span>
-          </button>
+          {isEmpty
+            ? (
+                <button className='btn-more' onClick={fetchMore}>
+                  <span>No More Data</span>
+                </button>
+              )
+            : moreLoading
+              ? (
+                  <button className='btn-more'>
+                    <span>Loading...</span>
+                  </button>
+                )
+              : (
+                  <button className='btn-more' onClick={fetchMore}>
+                    <span>Show More</span>
+                  </button>
+                )
+          }
         </div>
       </ul>
     )
