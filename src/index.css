@@ -452,6 +452,28 @@ input:focus {
   color: #000;
 }
 
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more .btn-more {
+  padding: 10px 15px;
+  background-color: var(--primary);
+  color: var(--dark);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  font-size: 1rem;
+  width: 24%;
+}
+
+.more .btn-more:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .like-quote {
   text-align: center;
   line-height: 21px;

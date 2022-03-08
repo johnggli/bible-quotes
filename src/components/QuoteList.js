@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc, where } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc, where, limit, startAfter } from 'firebase/firestore'
 import { db } from '../services/firebase'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -8,6 +8,7 @@ function QuoteList(props) {
   const { user, isAuthenticated, isLoading } = useAuth0()
   const [quotesLoading, setQuotesLoading] = useState(true)
   const [quotes, setQuotes] = useState([])
+  const [lastDoc, setLastDoc] = useState()
 
   /* function to like a quote */
   function likeQuote(quoteId) {
@@ -54,7 +55,7 @@ function QuoteList(props) {
     if (props.topic) {
       quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'))
     } else {
-      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'))
+      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(2))
     }
     onSnapshot(quotesRef, (querySnapshot) => {
       let quotesArray = []
@@ -65,12 +66,30 @@ function QuoteList(props) {
         })
       })
 
+      if (isMounted) setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
       if (isMounted) setQuotes(quotesArray)
       if (isMounted) setQuotesLoading(false)
     })
 
     return () => { isMounted = false } // cleanup toggles value, if unmounted
   },[props.topic])
+
+  function fetchMore() {
+    let quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(2), startAfter(lastDoc))
+    onSnapshot(quotesRef, (querySnapshot) => {
+      let quotesArray = []
+      querySnapshot.docs.forEach((quote) => {
+        quotesArray.push({
+          id: quote.id,
+          data: quote.data(),
+        })
+      })
+
+      setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
+      setQuotes((quotes) => [...quotes, ...quotesArray])
+      setQuotesLoading(false)
+    })
+  }
 
   let quoteList
   if (quotesLoading) {
@@ -105,6 +124,11 @@ function QuoteList(props) {
             </div>
           </div>
         ))}
+        <div className='more'>
+          <button className='btn-more' onClick={fetchMore}>
+            <span>Show More</span>
+          </button>
+        </div>
       </ul>
     )
   } else {
@@ -112,7 +136,9 @@ function QuoteList(props) {
   }
 
   return (
-    <>{quoteList}</>
+    <>
+      {quoteList}
+    </>
   )
 }
 
