@@ -95,9 +95,9 @@ function QuoteList(props) {
             data: quote.data(),
           })
         })
-  
+
         setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
-        setQuotes((quotes) => [...quotes, ...quotesArray])
+        setQuotes([...quotes, ...quotesArray])
         setMoreLoading(false)
       }
     })
