@@ -132,6 +132,13 @@ function QuoteList(props) {
                     <span>Delete</span>
                   </button>
                 )}
+                <button
+                  className='copy-quote'
+                  onClick={() => navigator.clipboard.writeText(quote.data.text)}
+                >
+                  <i className='fa fa-copy'></i>
+                  <span>Copy</span>
+                </button>
               </div>
             </div>
           </div>
