@@ -120,6 +120,13 @@ function QuoteList(props) {
                   <i className={isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
                   <span>{quote.data.likes}</span>
                 </button>
+                <button
+                  className='copy-quote'
+                  onClick={() => navigator.clipboard.writeText(quote.data.text)}
+                >
+                  <i className='fa fa-copy'></i>
+                  <span>Copy</span>
+                </button>
                 {isAuthenticated && (
                   <button
                     className='delete-quote'
@@ -132,13 +139,6 @@ function QuoteList(props) {
                     <span>Delete</span>
                   </button>
                 )}
-                <button
-                  className='copy-quote'
-                  onClick={() => navigator.clipboard.writeText(quote.data.text)}
-                >
-                  <i className='fa fa-copy'></i>
-                  <span>Copy</span>
-                </button>
               </div>
             </div>
           </div>
