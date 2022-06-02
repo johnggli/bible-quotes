@@ -2,16 +2,16 @@
 <h3 align="center">React app of CRUD bible quotes.</h3>
 
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/JohnEmerson1406/bible-quotes?color=827FFE&labelColor=000000">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/johnggli/bible-quotes?color=827FFE&labelColor=000000">
   
-  <a href="https://www.linkedin.com/in/johnemerson1406/">
+  <a href="https://www.linkedin.com/in/johnggli/">
     <img alt="Made by" src="https://img.shields.io/static/v1?label=made%20by&message=John%20Emerson&color=827FFE&labelColor=000000">
   </a>
   
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/JohnEmerson1406/bible-quotes?color=827FFE&labelColor=000000">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/johnggli/bible-quotes?color=827FFE&labelColor=000000">
   
-  <a href="https://github.com/JohnEmerson1406/bible-quotes/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/JohnEmerson1406/bible-quotes?color=827FFE&labelColor=000000">
+  <a href="https://github.com/johnggli/bible-quotes/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/johnggli/bible-quotes?color=827FFE&labelColor=000000">
   </a>
 </p>
 
@@ -53,4 +53,4 @@ This project is under the MIT license. See the [LICENSE](LICENSE.md) file for mo
 
 ---
 
-Made with ❤️ by John Emerson :wave: [Get in touch](https://johnemerson1406.github.io/linktree)
+Made with ❤️ by John Emerson :wave: [Get in touch](https://johnggli.github.io/linktree)
