@@ -33,7 +33,8 @@
 ---
 
 ## 💡 About the project
-// To Do
+This is a simple Bible quotes app developed with React and Firebase.
+- [Demo](https://biblequotes.netlify.app)
 
 ## 🚀 Getting started
 // To Do
