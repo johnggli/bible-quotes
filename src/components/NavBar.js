@@ -32,9 +32,6 @@ function NavBar() {
             <li className='nav-item'>
               <Link to='/topics' onClick={handleClick}>Topics</Link>
             </li>
-            <li className='nav-item'>
-              <Link to='/quoteofday' onClick={handleClick}>Quote of Day</Link>
-            </li>
             {!isLoading && (
               <>
                 {isAuthenticated ? (
