@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function QuoteList(props) {
 
-  const { user, isAuthenticated } = useAuth0()
+  const { user, isAuthenticated, isLoading } = useAuth0()
   const [quotesLoading, setQuotesLoading] = useState(true)
   const [moreLoading, setMoreLoading] = useState(false)
   const [isEmpty, setIsEmpty] = useState(false)
@@ -15,7 +15,6 @@ function QuoteList(props) {
   /* function to get all quotes from firestore in realtime */
   useEffect(() => {
     if (isAuthenticated) {
-      let isMounted = true
       let quotesRef
 
       if (props.topic) {
@@ -32,14 +31,14 @@ function QuoteList(props) {
           })
         })
   
-        if (isMounted) setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
-        if (isMounted) setQuotes(quotesArray)
-        if (isMounted) setQuotesLoading(false)
+        setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
+        setQuotes(quotesArray)
+        setQuotesLoading(false)
       })
-  
-      return () => { isMounted = false } // cleanup toggles value, if unmounted
+    } else {
+      !isLoading && setQuotesLoading(false)
     }
-  },[isAuthenticated, props.topic])
+  },[isAuthenticated, isLoading, props.topic])
 
   /* function to get more quotes from firestore */
   function fetchMore() {
