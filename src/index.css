@@ -3,12 +3,13 @@
 :root {
   --primary: #FFF;
   --secondary: #21D07A;
-  --danger: #F44D3C;
+  --danger: #ff3260;
   --dark: #7d7d7d;
   --black: #032541;
   --background: #EEE;
   --text: #000;
   --gray: #DDD;
+  --dark-gray: #b4b4b4;
 }
 
 body {
@@ -498,28 +499,28 @@ input:focus {
   text-align: center;
   line-height: 21px;
   margin: 0 5px 0 0;
-  padding: 7px 10px;
+  padding: 7px 12px;
   font-size: 15px;
   font-weight: 300;
   display: inline-block;
-  color: var(--primary);
+  color: var(--danger);
   cursor: pointer;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  border: 1px solid var(--danger);
-  background-color: var(--danger);
+  border: 1px solid var(--gray);
+  background-color: var(--primary);
 }
 
 .copy-quote {
   text-align: center;
   line-height: 21px;
   margin: 0 5px 0 0;
-  padding: 7px 10px;
+  padding: 7px 12px;
   font-size: 15px;
   font-weight: 300;
   display: inline-block;
-  color: var(--dark);
+  color: var(--dark-gray);
   cursor: pointer;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -635,7 +636,7 @@ input:focus {
 }
 
 .footer i {
-  color: red;
+  color: var(--danger);
 }
 
 .footer a {

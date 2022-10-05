@@ -95,14 +95,12 @@ function QuoteList(props) {
                   onClick={() => navigator.clipboard.writeText(quote.data.text)}
                 >
                   <i className='fa fa-copy'></i>
-                  <span>Copy</span>
                 </button>
                 <button
                   className='delete-quote'
                   onClick={() => { if (window.confirm('Are you sure?')) deleteQuote(quote.id) }}
                 >
                   <i className='fa fa-trash'></i>
-                  <span>Delete</span>
                 </button>
               </div>
             </div>
