@@ -237,7 +237,7 @@ input:focus {
   }
 
   .nav-menu li a:hover {
-    background: var(--dark);
+    background: var(--black);
     display: block;
     padding: 1rem;
     color: var(--primary);
@@ -256,7 +256,7 @@ input:focus {
   
   .current-user:hover {
     cursor: pointer;
-    background: var(--dark);
+    background: var(--black);
     color: var(--primary);
     opacity: 1;
   }
@@ -278,7 +278,7 @@ input:focus {
     transform: translate(-100%, 50%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: var(--dark);
+    color: var(--black);
   }
 
   .nav-icon:hover {
