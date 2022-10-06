@@ -16,14 +16,9 @@ function QuoteInput() {
       alert('You must be logged in to post a quote.')
     } else {
       try {
-        addDoc(collection(db, 'quotes'), {
+        addDoc(collection(db, 'users', user.email, 'quotes'), {
           text: text,
           topic: topic,
-          users: [],
-          likes: 0,
-          author: user.email,
-          // checked: false,
-          // starred: false,
           created: Timestamp.now()
         })
         setText('');

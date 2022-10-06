@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { collection, query, orderBy, onSnapshot, updateDoc, doc, arrayUnion, arrayRemove, increment, deleteDoc, where, limit, startAfter } from 'firebase/firestore'
+import { collection, query, orderBy, onSnapshot, doc, deleteDoc, where, limit, startAfter } from 'firebase/firestore'
 import { db } from '../services/firebase'
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -12,77 +12,42 @@ function QuoteList(props) {
   const [quotes, setQuotes] = useState([])
   const [lastDoc, setLastDoc] = useState()
 
-  /* function to like a quote */
-  function likeQuote(quoteId) {
-    if (!isAuthenticated) {
-      alert('You must be logged in to like a quote.')
-    } else {
-      try {
-        updateDoc(doc(db, 'quotes', quoteId), {
-          users: arrayUnion(user.email),
-          likes: increment(1),
-        })
-      } catch (err) {
-        alert(err)
-      }
-    }
-  }
-
-  /* function to dislike a quote */
-  function dislikeQuote(quoteId) {
-    try {
-      updateDoc(doc(db, 'quotes', quoteId), {
-        users: arrayRemove(user.email),
-        likes: increment(-1),
-      })
-    } catch (err) {
-      alert(err)
-    }
-  }
-
-  /* function to delete a quote */
-  function deleteQuote(quoteId) {
-    try {
-      deleteDoc(doc(db, 'quotes', quoteId))
-    } catch (err) {
-      alert(err)
-    }
-  }
-
-  /* function to get all quotes from firestore in realtime */ 
+  /* function to get all quotes from firestore in realtime */
   useEffect(() => {
-    let isMounted = true
+    if (isAuthenticated) {
+      let quotesRef
 
-    let quotesRef
-    if (props.topic) {
-      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'), limit(10))
-    } else {
-      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(10))
-    }
-    onSnapshot(quotesRef, (querySnapshot) => {
-      let quotesArray = []
-      querySnapshot.docs.forEach((quote) => {
-        quotesArray.push({
-          id: quote.id,
-          data: quote.data(),
+      if (props.topic) {
+        quotesRef = query(collection(db, 'users', user.email, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('created', 'desc'), limit(10))
+      } else {
+        quotesRef = query(collection(db, 'users', user.email, 'quotes'), orderBy('created', 'desc'), limit(10))
+      }
+      onSnapshot(quotesRef, (querySnapshot) => {
+        let quotesArray = []
+        querySnapshot.docs.forEach((quote) => {
+          quotesArray.push({
+            id: quote.id,
+            data: quote.data(),
+          })
         })
+  
+        setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
+        setQuotes(quotesArray)
+        setQuotesLoading(false)
       })
+    } else {
+      !isLoading && setQuotesLoading(false)
+    }
+  },[isAuthenticated, isLoading, props.topic])
 
-      if (isMounted) setLastDoc(querySnapshot.docs[querySnapshot.docs.length-1])
-      if (isMounted) setQuotes(quotesArray)
-      if (isMounted) setQuotesLoading(false)
-    })
-
-    return () => { isMounted = false } // cleanup toggles value, if unmounted
-  },[props.topic])
-
+  /* function to get more quotes from firestore */
   function fetchMore() {
     setMoreLoading(true)
     let quotesRef
     if (props.topic) {
-      quotesRef = query(collection(db, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('likes', 'desc'), limit(10), startAfter(lastDoc))
+      quotesRef = query(collection(db, 'users', user.email, 'quotes'), where('topic', '==', `${props.topic}`), orderBy('created', 'desc'), limit(10), startAfter(lastDoc))
     } else {
-      quotesRef = query(collection(db, 'quotes'), orderBy('created', 'desc'), limit(10), startAfter(lastDoc))
+      quotesRef = query(collection(db, 'users', user.email, 'quotes'), orderBy('created', 'desc'), limit(10), startAfter(lastDoc))
     }
     onSnapshot(quotesRef, (querySnapshot) => {
       if (querySnapshot.size === 0) {
@@ -103,6 +68,15 @@ function QuoteList(props) {
     })
   }
 
+  /* function to delete a quote */
+  function deleteQuote(quoteId) {
+    try {
+      deleteDoc(doc(db, 'users', user.email, 'quotes', quoteId))
+    } catch (err) {
+      alert(err)
+    }
+  }
+
   let quoteList
   if (quotesLoading) {
     quoteList = <div className='quote-list-empty'>Loading...</div>
@@ -116,29 +90,18 @@ function QuoteList(props) {
                 {quote.data.text}
               </span>
               <div className='quote-list-buttons'>
-                <button className='like-quote' onClick={isLoading ? undefined : isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? () => dislikeQuote(quote.id) : () => likeQuote(quote.id)}>
-                  <i className={isAuthenticated && quote.data.users.indexOf(user.email) > -1 ? 'fa fa-heart' : 'fa fa-heart-o'}></i>
-                  <span>{quote.data.likes}</span>
-                </button>
                 <button
                   className='copy-quote'
                   onClick={() => navigator.clipboard.writeText(quote.data.text)}
                 >
                   <i className='fa fa-copy'></i>
-                  <span>Copy</span>
                 </button>
-                {isAuthenticated && (
-                  <button
-                    className='delete-quote'
-                    style={{ 
-                      display: `${quote.data.author !== user.email && 'none'}`
-                    }}
-                    onClick={() => { if (window.confirm('Are you sure?')) deleteQuote(quote.id) }}
-                  >
-                    <i className='fa fa-trash'></i>
-                    <span>Delete</span>
-                  </button>
-                )}
+                <button
+                  className='delete-quote'
+                  onClick={() => { if (window.confirm('Are you sure?')) deleteQuote(quote.id) }}
+                >
+                  <i className='fa fa-trash'></i>
+                </button>
               </div>
             </div>
           </div>
